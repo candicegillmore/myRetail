@@ -75,8 +75,8 @@ router.get('/:id', function(req, res, next) {
           try{value = result.rows[0].currency_price;}
           catch(ex){console.log('error reading currency price from myretail');}          
           
-          var currency_code = 0.0;
-          try{value = result.rows[0].currency_code;}
+          var currency_code = '';
+          try{currency_code = result.rows[0].currency_code;}
           catch(ex){console.log('error reading currency code from myretail');}       
 
 
@@ -86,7 +86,7 @@ router.get('/:id', function(req, res, next) {
             "name": title,
             "current_price":{
               "value": value,
-              "currency_code": currency_code
+              "currency_code": currency_code,
             }
           }
 
