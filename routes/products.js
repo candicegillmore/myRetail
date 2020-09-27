@@ -27,7 +27,6 @@ router.get('/', function(req, res, next) {
       }
       else{
           res.send(prices);
-          //res.render('index', {prices: result.rows});
       }
   });
 });
@@ -40,7 +39,7 @@ router.get('/:id', function(req, res, next) {
   //Run the query
   client.execute (getPrice, [parseInt(req.params.id)], {prepare: true}, function(err, result){
     if(err){
-      res.status(404).send({msg:err});
+      res.status(404).send('foobar');
     }
     else{
       if(result.rows.length == 0){
